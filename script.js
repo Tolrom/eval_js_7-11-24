@@ -166,7 +166,7 @@ async function randomUser() {
 // ADRESSE
         const lieu = user.location;
 
-        adress.textContent = 'Adresse : ' + lieu.street.number + ' ' + lieu.street.name + ' ( ' + lieu.city + ', ' + lieu.country + ' )';
+        adress.textContent = 'Adress : ' + lieu.street.number + ' ' + lieu.street.name + ' ( ' + lieu.city + ', ' + lieu.country + ' )';
         userCard.appendChild(adress);
 // TELEPHONE
         phone.textContent = 'Phone : ' + user.phone;

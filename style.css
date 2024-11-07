@@ -18,6 +18,9 @@ div {
     top: 2em;
     right: 2em;
 }
+img {
+    border-radius: 10px;
+}
 #user {
     display: flex;
     flex-direction: column;
@@ -28,5 +31,5 @@ div {
     align-self: center;
     border-radius: 15px;
     padding: 1em;
-    background-color: antiquewhite;
+    background-color: rgb(225, 243, 255);
 }
