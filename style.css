@@ -1,0 +1,11 @@
+*{
+    font-family: Helvetica;
+}
+#bouton {
+    background-color: #424242;
+    color: white;
+    padding: 1em;
+    width: fit-content;
+    border-radius: .5em;
+    cursor: pointer;
+}
