@@ -52,10 +52,7 @@ let mot = 'chat',
     phrase = 'J\'ai un chien et un chat et ils sont très mignons';
 
 function check(string, mot) {
-    if (string.indexOf(mot) < 0) {
-        return false;
-    };
-    return true;
+    string.includes(mot) ? true : false;
 }
 
 console.log('Exercice 6 :');
