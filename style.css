@@ -1,6 +1,10 @@
 *{
     font-family: Helvetica;
 }
+body {
+    display: flex;
+    flex-direction: column;
+}
 div {
     background-color: #424242;
     color: white;
@@ -8,10 +12,21 @@ div {
     width: fit-content;
     border-radius: .5em;
     cursor: pointer;
-
 }
 #dark {
     position: fixed;
     top: 2em;
     right: 2em;
+}
+#user {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: fit-content;
+    align-self: center;
+    border-radius: 15px;
+    padding: 1em;
+    background-color: antiquewhite;
 }

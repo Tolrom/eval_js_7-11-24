@@ -1,5 +1,7 @@
 // Exo 1
 
+const body = document.querySelector('body');
+
 let prenom = 'Maxime',
     age = 27,
     permis = false;
@@ -109,7 +111,6 @@ norrisFact();
 // Exo 12
 
 const darkBouton = document.querySelector('#dark'),
-    body = document.querySelector('body'),
     divList = document.querySelectorAll('div');
 
 let dark = false;
@@ -130,3 +131,56 @@ darkBouton.addEventListener('click', () => {
     dark = !dark;
 })
 
+
+// Random User
+
+const userCard = document.querySelector('#user');
+
+async function randomUser() {
+    const image = document.createElement('img'),
+        name = document.createElement('h5'),
+        mail = document.createElement('p'),
+        adress = document.createElement('p'),
+        phone = document.createElement('p'),
+        refresh = document.createElement('div');
+    
+    const url = "https://randomuser.me/api/";
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`Response status: ${response.status}`);
+        }
+        const json = await response.json();
+        const user = json.results[0]
+        console.log(user)
+// IMAGE
+        image.setAttribute("src", user.picture.large);
+        image.style.width = '200px';
+        userCard.appendChild(image);
+// NOM
+        name.textContent = user.name.title + '. ' + user.name.first + ' ' + user.name.last;
+        userCard.appendChild(name);
+// MAIL
+        mail.textContent = user.email;
+        userCard.appendChild(mail); 
+// ADRESSE
+        const lieu = user.location;
+
+        adress.textContent = 'Adresse : ' + lieu.street.number + ' ' + lieu.street.name + ' ( ' + lieu.city + ', ' + lieu.country + ' )';
+        userCard.appendChild(adress);
+// TELEPHONE
+        phone.textContent = 'Phone : ' + user.phone;
+        userCard.appendChild(phone);
+// BOUTON
+        refresh.textContent = 'Random User';
+        refresh.addEventListener("click", () => {
+            userCard.innerHTML = '';
+            randomUser();
+        });
+        userCard.appendChild(refresh);
+
+    } catch (error) {
+        console.error(error.message);
+    }
+}
+randomUser();
