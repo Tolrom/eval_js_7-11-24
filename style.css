@@ -1,11 +1,17 @@
 *{
     font-family: Helvetica;
 }
-#bouton {
+div {
     background-color: #424242;
     color: white;
     padding: 1em;
     width: fit-content;
     border-radius: .5em;
     cursor: pointer;
+
+}
+#dark {
+    position: fixed;
+    top: 2em;
+    right: 2em;
 }

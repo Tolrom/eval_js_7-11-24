@@ -88,3 +88,48 @@ document.querySelector('h3').innerText += ' ' + Math.floor(Math.random() * 100).
 let bouton = document.querySelector('#bouton');
 
 bouton.addEventListener('click',()=> alert('J\'AVAIS DIT DE NE PAS CLIQUER POURTANT'));
+
+
+// Exo 11
+
+async function norrisFact() {
+    const url = "https://api.chucknorris.io/jokes/random";
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`);
+        }
+
+        const json = await response.json();
+        document.querySelector('#norris').innerText = json.value;
+    } catch (error) {
+        console.error(error.message);
+    }
+}
+
+norrisFact();
+
+// Exo 12
+
+const darkBouton = document.querySelector('#dark'),
+    body = document.querySelector('body'),
+    divList = document.querySelectorAll('div');
+
+let dark = false;
+
+darkBouton.addEventListener('click', () => {
+    if (!dark) {
+        body.style.backgroundColor = 'chartreuse';
+        divList.forEach(function (bouton) {
+            bouton.style.color = 'chartreuse';
+        });
+    }
+    else {
+        body.style.backgroundColor = 'white';
+        divList.forEach(function (bouton) {
+            bouton.style.color = 'white';
+        });
+    }
+    dark = !dark;
+})
+
